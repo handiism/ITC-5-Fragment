@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:context=".DetailDialogFragment"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_gravity="center"
+    android:padding="20dp" >
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Senjataku"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nama"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tv_firepower"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Firepower"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tv_rate_of_fire"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rate of Fire"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tv_accuracy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Accuracy"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tv_evasion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Evasion"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tv_damage_per_second"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Damage per Second"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tv_combat_effectiveness"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Combat Effectiveness"
+        android:textSize="20sp" />
+</LinearLayout>

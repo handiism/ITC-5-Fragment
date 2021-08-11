@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center|top"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Masukkan Senjatamu"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/et_name"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:hint="Nama"
+        android:gravity="center" />
+
+    <EditText
+        android:id="@+id/et_firepower"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:hint="Firepower"
+        android:gravity="center" />
+
+    <EditText
+        android:id="@+id/et_rate_of_fire"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:hint="Rate of Fire"
+        android:gravity="center" />
+
+    <EditText
+        android:id="@+id/et_accuracy"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:hint="Accuracy"
+        android:gravity="center" />
+
+    <EditText
+        android:id="@+id/et_evasion"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:hint="Evasion"
+        android:gravity="center" />
+
+    <Button
+        android:id="@+id/btn_add"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:hint="Tambah Senjata"
+        android:textColorHint="@color/white"/>
+
+    <TextView
+        android:id="@+id/tv_title_weapon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Senjata"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btn_my_weapon"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:hint="Punyaku"
+        android:textColorHint="@color/white"/>
+
+    <Button
+        android:id="@+id/btn_enemy_weapon"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:hint="Musuh"
+        android:textColorHint="@color/white"/>
+
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="250dp"
+        android:layout_height="match_parent" />
+
+</LinearLayout>
