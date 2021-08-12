@@ -2,12 +2,9 @@ package id.handiism.tacticalweapon;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
 import android.os.Bundle;
-import android.text.Layout;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,14 +17,12 @@ public class MainActivity extends AppCompatActivity {
     private EditText etName, etFirepower, etRateOfFire, etAccuracy, etEvasion;
     private Button btnAdd, btnMyWeapon, btnEnemyWeapon;
     private static Weapon mine, enemy;
-    private boolean eligibility = false;
-    Bundle bundle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        // deklarasai view manual
         tvTitle = findViewById(R.id.tv_title);
         etName = findViewById(R.id.et_name);
         etFirepower = findViewById(R.id.et_firepower);
@@ -38,43 +33,53 @@ public class MainActivity extends AppCompatActivity {
         btnMyWeapon = findViewById(R.id.btn_my_weapon);
         btnEnemyWeapon = findViewById(R.id.btn_enemy_weapon);
 
+        // input weapon pertama
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // checkinput() mengecek apakah input sudah sesuai tipe yang diharapkan
                 if (checkInput()) {
-                    mine = setWeapon(mine);
+                    mine = setWeapon(mine); // setweapon untuk menginisisiasi objeck
                     Toast.makeText(MainActivity.this, "Senjata Ditambahkan", Toast.LENGTH_SHORT).show();
                     tvTitle.setText("Masukkan Senjata Musuh");
-                    clearEditText();
+                    clearEditText(); // untuk membersihkan editText
+                    // input weapon kedua
                     btnAdd.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
+                            // checkinput() mengecek apakah input sudah sesuai tipe yang diharapkan
                             if (checkInput()) {
-                                enemy = setWeapon(enemy);
-                                clearEditText();
+                                enemy = setWeapon(enemy); // setweapon untuk menginisisiasi objeck
+                                clearEditText(); // untuk membersihkan editText
                                 Toast.makeText(MainActivity.this, "Senjata Ditambahkan", Toast.LENGTH_SHORT).show();
 
+                                // menampilkan decisionfragment
                                 FragmentManager fragmentManager = getSupportFragmentManager();
                                 DecisionFragment decisionFragment = new DecisionFragment();
                                 fragmentManager.beginTransaction().add(R.id.container, decisionFragment).commit();
 
+                                // menampilkan detailDialogFragment dari weapon ku
                                 btnMyWeapon.setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View view) {
                                         View dialogView = getLayoutInflater().inflate(R.layout.fragment_detail_dialog, null);
+                                        // loadfragment() untuk menampilkan fraagment berdarakan objek
                                         loadFragment(changeView(dialogView,mine));
 
                                     }
                                 });
+
+                                // menampilkan detailDialogFragment dari weapon musuh
                                 btnEnemyWeapon.setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View view) {
                                         View dialogView = getLayoutInflater().inflate(R.layout.fragment_detail_dialog, null);
+                                        // loadfragment() untuk menampilkan fraagment berdarakan objek
                                         loadFragment(changeView(dialogView, enemy));
                                     }
                                 });
                             } else {
-                                Toast.makeText(MainActivity.this, "", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(MainActivity.this, "Input Salah", Toast.LENGTH_SHORT).show();
                             }
                         }
                     });
@@ -97,8 +102,6 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this , "Belum diisi", Toast.LENGTH_SHORT).show();
                 }
             });
-        } else {
-
         }
     }
     public void clearEditText() {

@@ -2,10 +2,10 @@ package id.handiism.tacticalweapon;
 
 public class Weapon {
     private  String name;
-    private int firepower;
-    private int rateOfFire;
-    private int accuracy;
-    private int evasion;
+    private int firepower; // besar kerusakan yang dihasilkan dalam satu serangan
+    private int rateOfFire; // banyak serangan yang bisa dilakukan dalam satu menit
+    private int accuracy; // kemampuan untuk melakukan serangan dengan akurat
+    private int evasion; // kemampuan
 
     public Weapon(String name, int firepower, int rateOfFire, int accuracy, int evasion) {
         this.name = name;
@@ -15,14 +15,17 @@ public class Weapon {
         this.evasion = evasion;
     }
 
+    // getDamagePerSecond untuk mengembalikan nilai damaga per second (bersar kerusakan dalam sedetik)
     public final double getDamagePerSecond() {
         return (double) (firepower * rateOfFire) / 60;
     }
 
+    // getCombatEffectivness mengembalikan nilai keefektifan suatu weapon
     public final int getCombatEffectiveness() {
         return (int) (30 * firepower + 40 * (rateOfFire * rateOfFire / 120) + 15 * (accuracy +evasion));
     }
 
+    // winOver untuk mengetahui apakah suatu weapon bisa menang atau tidak melawan weapon lain
     public boolean winOver(Weapon weapon) {
         if (this.getAccuracy() * this.getCombatEffectiveness()
                 >= weapon.getAccuracy() * weapon.getCombatEffectiveness()) {
@@ -30,26 +33,6 @@ public class Weapon {
         } else {
             return false;
         }
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setFirepower(int firepower) {
-        this.firepower = firepower;
-    }
-
-    public void setRateOfFire(int rateOfFire) {
-        this.rateOfFire = rateOfFire;
-    }
-
-    public void setAccuracy(int accuracy) {
-        this.accuracy = accuracy;
-    }
-
-    public void setEvasion(int evasion) {
-        this.evasion = evasion;
     }
 
     public String getName() {

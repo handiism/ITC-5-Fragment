@@ -63,9 +63,16 @@ public class DecisionFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_decision, container, false);
+
+        // merubah tampilan berdasarkan user input
         tvDecision = view.findViewById(R.id.tv_decision);
+
+        // mengambil data dari main activity menggunakan getter
+
         mine = MainActivity.getMine();
         enemy = MainActivity.getEnemy();
+
+        // isi tampilan
         if (mine.winOver(enemy)) {
             tvDecision.setText("Gass Lawan!");
         } else {
